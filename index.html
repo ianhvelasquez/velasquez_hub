@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VelasquezHub.com</title>
+    <link rel="stylesheet" href="mystyle.css" />
+</head>
+<body>
+
+<header>
+    <h1>VHub.com</h1>
+
+    <nav>
+        <a onclick="showPage('home')">HOME PAGE</a>
+        <a onclick="showPage('cart')">YOUR CART</a>
+        <a onclick="showPage('profile')">PROFILE</a>
+    </nav>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchItem()">
+    </div>
+</header>
+
+<div class="container" id="home">
+    <h2>Welcome to VHub</h2>
+    <img class="picture" src="https://gameone.ph/media/catalog/product/mpiowebpcache/d378a0f20f83637cdb1392af8dc032a2/r/a/razer_blackshark_v2_hyperspeed_headset_black_white.webp" />
+    <img class="picture" src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/446935/sub/goods_446935_sub15_3x4.jpg?width=494" />
+    <img class="picture" src="images/image.jpg" />
+    <p>Your one-stop shopping hub.</p>
+    <ul id="productList">
+        <li>T-Shirt</li>
+        <li>SHOES</li>
+        <li>Smart Watch</li>
+        <li>Wireless Headphones</li>
+    </ul>
+
+    <p>
+        Visit us online:
+        <h1>
+    <a href="https://www.vhub.com" target="_blank">
+        VHub.com
+    </a>
+</h1>
+    </p>
+</div>
+
+<div class="container hidden" id="cart">
+    <h2>Your Cart</h2>
+    <p>You have no items in your cart.</p>
+</div>
+
+<div class="container hidden" id="profile">
+    <h2>Your Profile</h2>
+    <p><strong>Name:</strong> dweignayichino</p>
+    <p><strong>Email:</strong> dweignayichino@email.com</p>
+    <p><strong>Member Since:</strong> 2025</p>
+</div>
+
+<footer>
+    © 2025 VHub.com
+</footer>
+
+<script>
+    function showPage(page) {
+        document.getElementById('home').classList.add('hidden');
+        document.getElementById('cart').classList.add('hidden');
+        document.getElementById('profile').classList.add('hidden');
+
+        document.getElementById(page).classList.remove('hidden');
+    }
+
+    function searchItem() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let items = document.querySelectorAll('#productList li');
+
+        items.forEach(item => {
+            if (item.textContent.toLowerCase().includes(input)) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
